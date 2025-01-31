@@ -31,3 +31,4 @@ class Solution {//141. Linked List Cycle
         return false;
     }
 }
+
