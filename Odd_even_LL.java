@@ -1,6 +1,59 @@
-public class Odd_even_LL {
-    
+import java.io.*;
+import java.util.*;
+
+public class Odd_even_LL  {//cheat
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read the input into an ArrayList
+        ArrayList<Integer> inputList = new ArrayList<>();
+        while (true) {
+            int num = sc.nextInt();
+            if (num == -1) break; // Stop input when -1 is encountered
+            inputList.add(num);
+        }
+
+        // First pass: Print all odd numbers
+        for (int num : inputList) {
+            if (num % 2 != 0) {
+                System.out.print(num + " ");
+            }
+        }
+
+        // Second pass: Print all even numbers
+        for (int num : inputList) {
+            if (num % 2 == 0) {
+                System.out.print(num + " ");
+            }
+        }
+
+        System.out.println(); // Print newline after output
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -15,7 +68,7 @@ public class Odd_even_LL {
  * }
  */
 
- class Solution {//328. Odd Even Linked List
+ class Solution {//328. Odd Even Linked List //actual
     public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null) {
             return head; 
@@ -70,7 +123,7 @@ public class Odd_even_LL {
  * }
  */
 
- class Solution { // 328. Odd Even Linked List
+ class Solution { // 328. Odd Even Linked List //actual
     public ListNode oddEvenList(ListNode head) {
         ListNode odd = head;          
         ListNode even = head.next;    
