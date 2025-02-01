@@ -1,6 +1,67 @@
 import java.io.*;
 import java.util.*;
 
+public class LoopDetection {//array of fixed size for hashing
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Reading size of the list
+        int n = sc.nextInt();
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        // Reading elements into the ArrayList
+        for (int i = 0; i < n; i++) {
+            list.add(sc.nextInt());
+        }
+
+        // Initialize a hash array to keep track of visited nodes (using a fixed size for the hash array)
+        boolean[] visited = new boolean[100000];  // Fixed size hash array
+        // by default false in java
+        
+        // Cycle detection using the hash array (boolean array)
+        for (int i = 0; i < n; i++) {
+            int num = list.get(i);
+
+            // If the number is already visited, cycle is detected
+            if (visited[num]) {
+                System.out.println("YES");
+                return;
+            }
+
+            // Mark this number as visited
+            visited[num] = true;
+        }
+
+        // No cycle detected
+        System.out.println("NO");
+    }
+}
+
+
+public class LoopDetection {//HashSet , contains , add use
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        HashSet<Integer> st = new HashSet<>();
+
+        for (int i = 0; i < n; i++) {
+            int m = sc.nextInt();
+            if (st.contains(m)) {
+                System.out.println("YES");
+                return;
+            }
+            st.add(m);
+        }
+
+        System.out.println("NO");
+    }
+}
+
+
+
+
+
 public class LoopDetection {// arraylist fixed size for hashing
 
     public static void main(String[] args) {
@@ -31,46 +92,6 @@ public class LoopDetection {// arraylist fixed size for hashing
 
             // Mark this number as visited
             visited.set(num, true);
-        }
-
-        // No cycle detected
-        System.out.println("NO");
-    }
-}
-
-
-
-
-public class LoopDetection {//array of fixed size for hashing
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        // Reading size of the list
-        int n = sc.nextInt();
-        ArrayList<Integer> list = new ArrayList<>();
-        
-        // Reading elements into the ArrayList
-        for (int i = 0; i < n; i++) {
-            list.add(sc.nextInt());
-        }
-
-        // Initialize a hash array to keep track of visited nodes (using a fixed size for the hash array)
-        boolean[] visited = new boolean[100000];  // Fixed size hash array
-        Arrays.fill(visited, false);
-        
-        // Cycle detection using the hash array (boolean array)
-        for (int i = 0; i < n; i++) {
-            int num = list.get(i);
-
-            // If the number is already visited, cycle is detected
-            if (visited[num]) {
-                System.out.println("YES");
-                return;
-            }
-
-            // Mark this number as visited
-            visited[num] = true;
         }
 
         // No cycle detected
